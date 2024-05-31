@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Acortador de URLs" />
+    <meta name="viewport" content="width=device-width" />
+    <title>XuspiURL</title>
+</head>
+<body>
+    <main>
+        <h1>¡URL acortada con éxito!</h1>
+        <p>Tu URL es: https://xuspiurl-d4808f14912f.herokuapp.com/<span th:text="${shortUrl}"></span></p>
+        <button id="copyButton">Copiar URL acortada</button>
+    </main>
+</body>
+
+<script>
+    const copyButton = document.getElementById('copyButton');
+    const shortUrl = document.querySelector('span').textContent;
+
+    copyButton.addEventListener('click', () => {
+        navigator.clipboard.writeText("https://xuspiurl-d4808f14912f.herokuapp.com/" + shortUrl);
+    });
+</script>
+
+</html>
+
+<style>
+    :root {
+        font-size: clamp(0.625rem, 0.325rem + 1.2vw, 1rem);
+        font-family: sans-serif;
+    }
+
+    html {
+        background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+    }
+
+    main {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    button {
+        padding: 0.5rem 1rem;
+        border: none;
+        border-radius: 0.25rem;
+        background-color: #007bff;
+        color: white;
+        font-size: 1rem;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #0056b3;
+    }
+</style>
